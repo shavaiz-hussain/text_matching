@@ -133,7 +133,7 @@ THROTTLE_ZONES = {
         "VARY": "throttle.zones.RemoteIP",
         "NUM_BUCKETS": 2,  # Number of buckets worth of history to keep. Must be at least 2
         "BUCKET_INTERVAL": 5 * 60,  # Period of time to enforce limits.
-        "BUCKET_CAPACITY": 500,  # Maximum number of requests allowed within BUCKET_INTERVAL
+        "BUCKET_CAPACITY": 5,  # Maximum number of requests allowed within BUCKET_INTERVAL
     },
 }
 

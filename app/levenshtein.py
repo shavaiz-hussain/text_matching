@@ -9,13 +9,11 @@ def levenshtein_ratio_and_distance(s, t):
     rows = len(s) + 1
     cols = len(t) + 1
     distance = np.zeros((rows, cols), dtype=int)
-    # JARAK
     for i in range(1, rows):
         for k in range(1, cols):
             distance[i][0] = i
             distance[0][k] = k
 
-    # PROSE SEMUA HURUF
     for col in range(1, cols):
         for row in range(1, rows):
             if s[row - 1] == t[col - 1]:
