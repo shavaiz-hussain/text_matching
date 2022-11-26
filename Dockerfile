@@ -8,7 +8,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # install psycopg2 dependencies
 RUN apk update && \
     apk add --no-cache --virtual .build-deps \
-    postgresql-dev python3-dev musl-dev gcc
+    postgresql-dev python3-dev musl-dev gcc musl-dev linux-headers g++
 
 # install pipenv on base
 RUN pip install --upgrade pip

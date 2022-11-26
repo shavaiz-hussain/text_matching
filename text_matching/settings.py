@@ -126,3 +126,25 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+MATCHING_PERCENTAGE = 50
+
+THROTTLE_ZONES = {
+    "default": {
+        "VARY": "throttle.zones.RemoteIP",
+        "NUM_BUCKETS": 2,  # Number of buckets worth of history to keep. Must be at least 2
+        "BUCKET_INTERVAL": 5 * 60,  # Period of time to enforce limits.
+        "BUCKET_CAPACITY": 500,  # Maximum number of requests allowed within BUCKET_INTERVAL
+    },
+}
+
+# Where to store request counts.
+THROTTLE_BACKEND = "throttle.backends.cache.CacheBackend"
+
+# Optional after Redis backend is chosen ('throttle.backends.redispy.RedisBackend')
+THROTTLE_REDIS_HOST = "redis"
+THROTTLE_REDIS_PORT = 6379
+THROTTLE_REDIS_DB = 0
+THROTTLE_REDIS_AUTH = "pass"
+
+# Normally, throttling is disabled when DEBUG=True. Use this to force it to enabled.
+THROTTLE_ENABLED = True

@@ -5,5 +5,5 @@ class Key(models.Model):
     name = models.CharField(max_length=1024, unique=True, db_index=True)
 
 
-class Values(models.Model):
+class Value(models.Model):
     name = models.CharField(max_length=1024, unique=True, db_index=True)
